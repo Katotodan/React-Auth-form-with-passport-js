@@ -22,3 +22,27 @@ export const loaderFunction = () =>{
     )
       
 }
+
+export const loaderFunctionOnLogin = () =>{
+    //send request to '/',
+    return (
+        axios.get("http://localhost:5000/",{
+        withCredentials: true, // Send credentials (cookies)
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        }).then(res => {
+        if(res.data === "Login"){
+            return null;
+        }else{
+            return redirect("/")
+        }
+        
+        })
+        .catch(err => {
+            console.log(err)
+            return redirect('/login');
+        })
+    )
+      
+}

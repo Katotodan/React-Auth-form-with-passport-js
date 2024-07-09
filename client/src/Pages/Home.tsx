@@ -6,9 +6,9 @@ export const Home = () => {
   const isAuth:any = useLoaderData()
   
   return (
-    <main>
+    <main className='home-main'>
       <Navbar username={isAuth.username} password={isAuth.password}/>
-      <p>Welcome {isAuth.username}!!!</p>
+      <p className='home-paragraph'>Welcome {isAuth.username}!!!</p>
     </main>
   )
 }

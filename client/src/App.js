@@ -3,7 +3,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { loaderFunction as loader } from './loader.js';
+import { loaderFunction as loader, loaderFunctionOnLogin as loaderOnLogin } from './loader.js';
+import {  } from './loader.js';
 import { Home } from './Pages/Home.tsx';
 import {Login} from './Pages/Login.tsx';
 import { Signup } from './Pages/Signup.tsx';
@@ -16,11 +17,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login/>,  
+    element: <Login/>, 
+    loader: loaderOnLogin 
   },
   {
     path: "/signin",
     element: <Signup/>,
+    loader: loaderOnLogin
   },
 ]);
 
